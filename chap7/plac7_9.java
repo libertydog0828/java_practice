@@ -20,11 +20,14 @@ class InverseNumber{
                 n = readPlusInt();
             } while(n <= 0);
 
-            ///////////////
-            ////reverse////
-            ///////////////
+            System.out.print("Reverse\n");
 
-            System.out.println("Yes => 1\tNo => 0");
+            while(n > 0){
+                System.out.print(n % 10);
+                n /= 10;
+            }
+
+            System.out.println("\nYes => 1\tNo => 0");
             flag = stdIn.nextInt();
             if(flag != 0 && flag != 1){
                 do{
