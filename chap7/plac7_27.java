@@ -1,53 +1,58 @@
 import java.util.Scanner;
 
-class ArrayInsOf{
+class MatrixAdd{
+
     static Scanner stdIn = new Scanner(System.in);
 
-    static void InputArray(int[] array){
-        for(int i = 0; i < array.length; i++){
-            System.out.printf("[%d] : ", i);
-            array[i] = stdIn.nextInt();
+    static boolean AddMat(int[][] a, int[][] b, int[][] c){
+        int count_a = 0, count_b = 0;
+        for(int i = 0; i < a.length; i++){
+            for(int j = 0; j < a[i].length; j++){
+                count_a++;
+            }
         }
+
+        for(int i = 0; i < b.length; i++){
+            for(int j = 0; j < b[i].length; j++){
+                count_b++;
+            }
+        }
+
+        if(count_a == count_b){
+            for(int i = 0; i < a.length; i++){
+                for(int j = 0; j < a[i].length; j++){
+                    c[i][j] = a[i][j] + b[i][j];
+                }
+            }
+            return true;
+        }
+
+        else return false;
     }
 
-    static int[] InsArray(int[] x, int i_idx, int i_num){
-        int[] y = new int[x.length + 1];
-
-        for(int i = 0; i < y.length; i++){
-
-            if(i < i_idx) y[i] = x[i];
-            else if(i == i_idx) y[i] = i_num;
-            else y[i] = x[i - 1];
-
+    static void PrintMat(int[][] x){
+        for(int i = 0; i < x.length; i++){
+            for(int j = 0; j < x[i].length; j++){
+                System.out.printf("[%d][%d] : %d\t", i, j, x[i][j]);
+            }
+            System.out.printf("\n");
         }
-
-        return y;
     }
 
     public static void main(String[] args){
-        int n;
-        int[] a;
-        int ins_idx, ins_num;
-        int[] b;
+        int[][] x = {{1, 2, 3}, {4, 5, 6}};
+        int[][] y = {{7, 8, 9}, {10, 11, 12}};
+        int[][] z = new int[2][3];
 
-        do{
-            System.out.print("The number of Elements : ");
-            n = stdIn.nextInt();
-        } while(n <= 0);
+        if(AddMat(x, y, z)){
+            System.out.println("x matrix");
+            PrintMat(x);
+            System.out.println("y matrix");
+            PrintMat(y);
+            System.out.println("Total Mat");
+            PrintMat(z);
+        }
+        else System.out.printf("The number of Elements is not match\n");
 
-        a = new int[n];
-        InputArray(a);
-
-        do{
-            System.out.print("Insert index : ");
-            ins_idx = stdIn.nextInt();
-        } while(ins_idx < 0 || ins_idx > a.length - 1);
-
-        System.out.print("Insert number : ");
-        ins_num = stdIn.nextInt();
-
-        b = InsArray(a, ins_idx, ins_num);
-
-        for(int i = 0; i < b.length; i++) System.out.printf("b[%d] : %d\n", i, b[i]);
     }
 }
