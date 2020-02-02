@@ -3,7 +3,7 @@ class Coordinate{
     private double Y;
 
     //constructer//
-    Coordinate(int X, int Y){
+    Coordinate(double X, double Y){
         this.X = X; this.Y = Y;
     }
 
