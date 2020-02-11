@@ -48,7 +48,7 @@ class HumanTester{
         System.out.print("\n___________________________________\n");
 
         for(int i = 0; i < p.length; i++){
-            System.out.println("No. " + (i + 1) + " "+ p[i]);
+            System.out.printf("name:%s\tH:%d\tW:%d\n", p[i].getName(), p[i].getHeight(), p[i].getWeight());
         }
 
         System.out.println();
@@ -56,7 +56,7 @@ class HumanTester{
         for(int i = 0; i < q.length; i++){
             System.out.printf("%d Class information\n", i + 1);
             for(int j = 0; j < q[i].length; j++){
-                System.out.print("No. " + (j + 1) + " " + q[i][j]);
+                System.out.printf("name:%s\tH:%d\tW:%d\n", q[i][j].getName(), q[i][j].getHeight(), q[i][j].getWeight());
             }
             System.out.println();
         }
